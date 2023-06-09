@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>改行アプリ</title>
-  <link rel="stylesheet" type="text/css" href="./src/css/style.css">
+  <title>文章の句点で改行するアプリ</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <textarea id="input-text" placeholder="ここにテキストを入力してください"></textarea>
-    <button onclick="insertText()">改行する</button>
-    <div id="output-text"></div>
-  </div>
-
-  <script src="./src/js/script.js"></script>
+  <h1>文章の句点で改行するアプリ</h1>
+  
+  <label for="input-text">入力してください:</label>
+  <textarea id="input-text"></textarea>
+  
+  <button onclick="breakAtPeriod()">改行</button>
+  
+  <h2>改行後のテキスト:</h2>
+  <div id="output-text"></div>
+  
+  <script src="script.js"></script>
 </body>
 </html>
