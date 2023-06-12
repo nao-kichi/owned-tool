@@ -4,12 +4,18 @@ document.getElementById('inputForm').addEventListener('submit', function(event) 
   // input text
   var inputText = document.getElementById('inputText').value;
 
+  // Remove empty lines
+  var nonEmptyLines = inputText.split('\n').filter(function(line) {
+    return line.trim() !== '';
+  });
+  var inputTextWithoutEmptyLines = nonEmptyLines.join('\n');
+
   // text count
-  var charCount = inputText.length;
+  var charCount = inputTextWithoutEmptyLines.length;
   document.getElementById('char-count').textContent = charCount;
 
   // replace
-  var outputText = inputText
+  var outputText = inputTextWithoutEmptyLines
     .replace(/言われています/g, 'いわれています')
     .replace(/下さい/g, 'ください')
     .replace(/でしょう/g, 'と思います')
@@ -31,7 +37,10 @@ document.getElementById('inputForm').addEventListener('submit', function(event) 
     .replace(/患者/g, '患者様')
     .replace(/いるでしょう/g, 'いるかもしれません')
     .replace(/います/g, 'いるといわれています')
-    .replace(/認められて/g, 'あるといわれて');
+    .replace(/認められて/g, 'あるといわれて')
+    .replace(/行われるべきです/g, '行われます')
+    .replace(/^\s*[\r\n]/gm, '') // Remove empty lines
+    .replace(/。/g, '。\n'); // Add line break after each sentence
 
   // output text
   document.getElementById('outputText').value = outputText;

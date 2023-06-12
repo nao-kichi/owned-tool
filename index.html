@@ -7,14 +7,15 @@
 </head>
 <body>
   <h2>自動化ツール</h2>
+  <h5>※実行時の改行回数に注意する</h5>
   <form id="inputForm">
     <textarea id="inputText" placeholder="テキストを入力してください"></textarea>
     <button type="submit">変換</button>
   </form>
+  <p>文字数: <span id="char-count">0</span></p>
   <form id="outputForm">
     <textarea id="outputText" readonly></textarea>
   </form>
-  <p>文字数: <span id="char-count">0</span></p>
 
   <script src="./src/js/script.js"></script>
 </body>
